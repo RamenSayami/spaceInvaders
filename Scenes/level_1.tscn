@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bubrfy2r420i7"]
+[gd_scene load_steps=8 format=3 uid="uid://bubrfy2r420i7"]
 
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_3de0a"]
 [ext_resource type="Texture2D" uid="uid://chbmmxriyv604" path="res://Backgrounds/darkPurple.png" id="1_6574q"]
 [ext_resource type="PackedScene" uid="uid://dvo3b3bi2w80p" path="res://Scenes/player_1.tscn" id="2_neil4"]
 [ext_resource type="PackedScene" uid="uid://d2d25cnvm8l1n" path="res://Scenes/ui.tscn" id="4_divtd"]
+[ext_resource type="AudioStream" uid="uid://bahn4i661p8t5" path="res://Sounds/battle.wav" id="5_rs44s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7h037"]
 size = Vector2(20, 720)
@@ -21,7 +22,7 @@ texture = ExtResource("1_6574q")
 metadata/_edit_lock_ = true
 
 [node name="Player1" parent="." instance=ExtResource("2_neil4")]
-position = Vector2(140, 203)
+position = Vector2(638, 617)
 
 [node name="Borders" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -66,6 +67,11 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="UI" parent="." instance=ExtResource("4_divtd")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rs44s")
+volume_db = -18.909
+autoplay = true
 
 [connection signal="laser" from="Player1" to="." method="_on_player_1_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_timer_timeout"]

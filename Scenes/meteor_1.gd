@@ -29,6 +29,8 @@ var meteors_shapes = [
 
 signal collision
 
+var can_collide := true
+
 func _ready():
 	var rng:= RandomNumberGenerator.new()
 	
@@ -52,10 +54,15 @@ func _process(delta):
 	rotation_degrees += rotation_speed * delta
 
 func _on_body_entered(_body):
-	collision.emit()
+	if can_collide:
+		collision.emit()
 	
 
 
 func _on_area_entered(area):
 	area.queue_free()
+	$ExplosionSound.play()
+	$MeteorBrownBig1.hide()
+	can_collide = false
+	await get_tree().create_timer(1).timeout
 	queue_free()

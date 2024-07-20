@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://crx6htndsiftq"]
+[gd_scene load_steps=4 format=3 uid="uid://crx6htndsiftq"]
 
 [ext_resource type="Script" path="res://Scenes/game_over.gd" id="1_7aijb"]
 [ext_resource type="FontFile" uid="uid://ct71uffiawyvd" path="res://Sounds/kenvector_future.ttf" id="1_o4t0r"]
+[ext_resource type="AudioStream" uid="uid://b3rytnp04o5o2" path="res://Sounds/meet-the-princess.wav" id="3_5tdsc"]
 
 [node name="Game Over" type="Control"]
 layout_mode = 3
@@ -66,3 +67,8 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_o4t0r")
 theme_override_font_sizes/font_size = 18
 text = "Press space to start again"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5tdsc")
+volume_db = -17.19
+autoplay = true

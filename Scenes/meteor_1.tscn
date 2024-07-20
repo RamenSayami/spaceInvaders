@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbq3lhi6b30ed"]
+[gd_scene load_steps=4 format=3 uid="uid://bbq3lhi6b30ed"]
 
 [ext_resource type="Script" path="res://Scenes/meteor_1.gd" id="1_pdkqp"]
+[ext_resource type="AudioStream" uid="uid://6tyly4x84jql" path="res://Sounds/sfx_twoTone.ogg" id="2_if4ep"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hg4x8"]
 radius = 44.4072
@@ -15,6 +16,9 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hg4x8")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_if4ep")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
